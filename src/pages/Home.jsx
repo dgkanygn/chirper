@@ -8,15 +8,19 @@ import { FaRegComment, FaRegHeart } from "react-icons/fa";
 import { Siderbar } from "../components/Siderbar";
 import { Timeline } from "../components/Timeline";
 import { Suggestions } from "../components/Suggestions";
+import { PageTitle } from "../components/PageTitle";
 
 function Home() {
   return (
-    <div className="container mx-auto max-w-[1300px] md:px-2 md:py-5">
-      <div className="flex gap-10 ">
-        <Siderbar />
+    <div className="container mx-auto max-w-[1300px] flex">
+      {/* <div className=" "> */}
+      <Siderbar />
+      <div className="w-[1200px]">
+        <PageTitle title={"Ana Sayfa"} />
         <Timeline />
-        <Suggestions />
       </div>
+      <Suggestions />
+      {/* </div> */}
     </div>
   );
 }

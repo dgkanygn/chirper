@@ -18,8 +18,8 @@ export const Suggestions = () => {
   ];
 
   return (
-    <div className="  w-96">
-      <div className="flex flex-col gap-6">
+    <div className="hidden lg:block w-96 ">
+      <div className="flex flex-col gap-8 border-l h-full p-3">
         {users.map((user, index) => (
           <UserCard key={index} username={user.username} pic={user.pic} />
         ))}

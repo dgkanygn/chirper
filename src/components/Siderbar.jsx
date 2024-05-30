@@ -10,30 +10,48 @@ import { Button } from "./Button";
 import { Logo } from "./sidebar/Logo";
 import { Link } from "react-router-dom";
 
+import { LuLogOut } from "react-icons/lu";
+import { ProfileCard } from "./sidebar/ProfileCard";
+
 export const Siderbar = () => {
   const buttons = [
     {
       label: "Ana Sayfa",
+      icon: RiHome7Fill,
+      path: "/",
     },
     {
       label: "Profil",
+      icon: HiUser,
+      path: "/profile",
     },
     {
       label: "Kaydedilenler",
+      icon: PiBookmarkSimpleFill,
+      path: "/",
     },
   ];
 
   return (
-    <div className="flex flex-col gap-10 w-72 py-5  ">
-      <Link to={"/"}>
-        <Logo />
-      </Link>
-      <div className="flex flex-col gap-6">
-        {buttons.map((btn, index) => (
-          <SidebarButton key={index} label={btn.label} />
-        ))}
+    <div className="hidden lg:flex flex-col justify-between w-1/3 py-5 sticky top-0 h-screen border-r pr-6 ">
+      <div className="space-y-10">
+        <Link to={"/"}>
+          <Logo />
+        </Link>
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6">
+            {buttons.map((item, index) => (
+              <Link to={item.path}>
+                <SidebarButton item={item} key={index} />
+              </Link>
+            ))}
+          </div>
+          <Button text={"Yeni gönderi"} sizes={"p-2.5 mt-4"} />
+        </div>
       </div>
-      <Button text={"Yeni gönderi"} sizes={"p-2.5"} />
+      <div>
+        <ProfileCard />
+      </div>
     </div>
   );
 };

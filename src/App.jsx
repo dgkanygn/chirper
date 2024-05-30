@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 
 function App() {
-  const isOpen = true;
+  const isOpen = false;
 
   return (
     <>

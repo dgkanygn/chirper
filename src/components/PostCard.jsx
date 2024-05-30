@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const PostCard = ({ pic, username, date, post, like, comment }) => {
   return (
     <div>
-      <div className="flex items-start gap-4">
+      <div className="flex items-start gap-4 border-b border-1 px-3 py-4">
         <Link to={"/profile"}>
           <img className="w-16 rounded-full" src={pic} alt="" />
         </Link>

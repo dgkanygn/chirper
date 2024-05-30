@@ -3,15 +3,19 @@ import { useState } from "react";
 import { Siderbar } from "../components/Siderbar";
 import { Suggestions } from "../components/Suggestions";
 import { ProfileArea } from "../components/ProfileArea";
+import { PageTitle } from "../components/PageTitle";
 
 function Profile() {
   return (
-    <div className="container mx-auto max-w-[1300px] md:px-2 md:py-5">
-      <div className="flex gap-6">
-        <Siderbar />
+    <div className="container mx-auto max-w-[1300px] flex">
+      {/* <div className=""> */}
+      <Siderbar />
+      <div className="w-[1200px]">
+        <PageTitle title={"Profile"} />
         <ProfileArea />
-        <Suggestions />
       </div>
+      <Suggestions />
+      {/* </div> */}
     </div>
   );
 }
