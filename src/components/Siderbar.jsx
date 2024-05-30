@@ -33,7 +33,7 @@ export const Siderbar = () => {
   ];
 
   return (
-    <div className="hidden lg:flex flex-col justify-between w-1/3 py-5 sticky top-0 h-screen border-r pr-6 ">
+    <div className="hidden lg:flex flex-col justify-between w-1/3 py-5 sticky top-0 h-screen border-r px-6">
       <div className="space-y-10">
         <Link to={"/"}>
           <Logo />

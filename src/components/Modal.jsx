@@ -6,10 +6,42 @@ import { Login } from "./popups/Login";
 import { Register } from "./popups/Register";
 
 export const Modal = () => {
+  const modals = [
+    {
+      name: "create",
+      element: <CreatePost />,
+    },
+    {
+      name: "comments",
+      element: <Comments />,
+    },
+    {
+      name: "login",
+      element: <Login />,
+    },
+    {
+      name: "register",
+      element: <Register />,
+    },
+    {
+      name: "users",
+      element: <Users />,
+    },
+  ];
+
+  const modalName = "create";
+  let modalElement = "";
+
+  modals.forEach((item) => {
+    if (item.name === modalName) {
+      modalElement = item.element;
+    }
+  });
+
   return (
     <div>
-      <div className="fixed z-10 inset-0 overflow-y-auto bg-blue-400 bg-opacity-30 flex items-center justify-center p-5 md:p-0">
-        <Register />
+      <div className="fixed z-20 inset-0 overflow-y-auto bg-blue-400 bg-opacity-30 flex items-center justify-center p-5 md:p-0">
+        {modalElement}
       </div>
     </div>
   );
