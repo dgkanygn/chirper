@@ -11,6 +11,9 @@ import { Suggestions } from "../components/Suggestions";
 import { PageTitle } from "../components/PageTitle";
 
 function Home() {
+  // const isOpen = useModalStore((state) => state.isOpen);
+  // const modalName = useModalStore((state) => state.modalName);
+
   return (
     <div className="container mx-auto max-w-[1300px] flex">
       {/* <div className=" "> */}

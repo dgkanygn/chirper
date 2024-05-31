@@ -1,8 +1,11 @@
 import React from "react";
 import { FaRegComment, FaRegHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import useModalStore from "../store/useModalStore";
 
 export const PostCard = ({ pic, username, date, post, like, comment }) => {
+  const { openModal } = useModalStore();
+
   return (
     <div>
       <div className="flex items-start gap-4 border-b border-1 px-3 py-4">
@@ -21,12 +24,15 @@ export const PostCard = ({ pic, username, date, post, like, comment }) => {
           <p>{post}</p>
           <div className="flex items-center gap-2">
             {/* tepki tuşu 1 */}
-            <div className="flex items-center gap-2 hover:bg-red-100 cursor-pointer py-1.5 px-3 rounded-full">
+            <div className="flex items-center gap-2 hover:bg-blue-100 cursor-pointer py-1.5 px-3 rounded-full">
               <FaRegHeart />
               <h1>{like}</h1>
             </div>
             {/* tepki tuşu 2 */}
-            <div className="flex items-center gap-2 hover:bg-red-100 cursor-pointer py-1.5 px-3 rounded-full">
+            <div
+              onClick={() => openModal("comments")}
+              className="flex items-center gap-2 hover:bg-blue-100 cursor-pointer py-1.5 px-3 rounded-full"
+            >
               <FaRegComment />
               <h1>{comment}</h1>
             </div>

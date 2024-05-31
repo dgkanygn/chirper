@@ -1,5 +1,6 @@
 import React from "react";
 import { FaRegHeart } from "react-icons/fa";
+import { CloseModalButton } from "./CloseModalButton";
 
 export const Comments = () => {
   return (
@@ -8,9 +9,7 @@ export const Comments = () => {
         <h1>
           <b>Yorumlar</b>
         </h1>
-        <h1 className="text-white">
-          <i class="fa-solid fa-xmark bg-blue-100 p-2 rounded text-blue-400 cursor-pointer  hover:bg-blue-200 transition duration-200 ease-in-out"></i>
-        </h1>
+        <CloseModalButton />
       </div>
       <div className="flex flex-col p-2 gap-5 mt-2 h-96 overflow-y-scroll">
         {/* yorum kart 1 */}

@@ -4,6 +4,7 @@ import { PostCard } from "./PostCard";
 import { Button } from "./Button";
 import { PostSwitcher } from "./profile-area/PostSwitcher";
 import { PageTitle } from "./PageTitle";
+import useModalStore from "../store/useModalStore";
 
 export const ProfileArea = () => {
   const posts = [
@@ -88,15 +89,11 @@ export const ProfileArea = () => {
     },
   ];
 
+  const { openModal } = useModalStore();
+
   return (
     <div>
       <div className="flex flex-col">
-        {/* <PageTitle title={"Profile"} /> */}
-        {/* <div className="bg-blue-500 py-24 flex justify-between"></div> */}
-        {/* <div> */}
-        {/* <div className=""> */}
-        {/* <div className=""> */}
-        {/* <div className="z-10"> */}
         <div className="flex items-end justify-between z-10 bg-blue-500 px-5 h-56">
           <img
             className="w-36 rounded-full relative top-16"
@@ -105,15 +102,30 @@ export const ProfileArea = () => {
           />
           <Button text={"Takip"} sizes={"px-12 py-1.5 relative top-12"} />
         </div>
-        {/* </div> */}
         <div className="p-4 pt-20">
           <h1>
             <b>{profile.username}</b>
           </h1>
           <p>{profile.bio}</p>
           <div className="flex items-center gap-4">
-            <p>{profile.following} Takip</p>
-            <p>{profile.followers} Takipçi</p>
+            <p>
+              <span
+                className="font-bold cursor-pointer hover:text-gray-500"
+                onClick={() => openModal("users")}
+              >
+                {profile.following}{" "}
+              </span>
+              Takip
+            </p>
+            <p>
+              <span
+                className="font-bold cursor-pointer hover:text-gray-500"
+                onClick={() => openModal("users")}
+              >
+                {profile.followers}{" "}
+              </span>
+              Takipçi
+            </p>
             <p>{profile.cakedate} katıldı</p>
           </div>
         </div>
@@ -141,9 +153,6 @@ export const ProfileArea = () => {
           />
         ))}
       </div>
-      {/* </div> */}
-      {/* </div> */}
     </div>
-    // </div>
   );
 };

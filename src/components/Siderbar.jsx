@@ -13,6 +13,8 @@ import { Link } from "react-router-dom";
 import { LuLogOut } from "react-icons/lu";
 import { ProfileCard } from "./sidebar/ProfileCard";
 
+import useModalStore from "../store/useModalStore";
+
 export const Siderbar = () => {
   const buttons = [
     {
@@ -32,6 +34,8 @@ export const Siderbar = () => {
     },
   ];
 
+  const { isOpen, modalName, openModal, closeModal } = useModalStore();
+
   return (
     <div className="hidden lg:flex flex-col justify-between w-1/3 py-5 sticky top-0 h-screen border-r px-6">
       <div className="space-y-10">
@@ -41,12 +45,16 @@ export const Siderbar = () => {
         <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-6">
             {buttons.map((item, index) => (
-              <Link to={item.path}>
-                <SidebarButton item={item} key={index} />
+              <Link key={index} to={item.path}>
+                <SidebarButton item={item} />
               </Link>
             ))}
           </div>
-          <Button text={"Yeni gönderi"} sizes={"p-2.5 mt-4"} />
+          <Button
+            onClick={() => openModal("create")}
+            text={"Yeni gönderi"}
+            sizes={"p-2.5 mt-4"}
+          />
         </div>
       </div>
       <div>

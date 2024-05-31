@@ -4,6 +4,7 @@ import { Users } from "./popups/Users";
 import { Comments } from "./popups/Comments";
 import { Login } from "./popups/Login";
 import { Register } from "./popups/Register";
+import useModalStore from "../store/useModalStore";
 
 export const Modal = () => {
   const modals = [
@@ -29,7 +30,8 @@ export const Modal = () => {
     },
   ];
 
-  const modalName = "create";
+  const { isOpen, modalName } = useModalStore();
+  // const modalName = "create";
   let modalElement = "";
 
   modals.forEach((item) => {

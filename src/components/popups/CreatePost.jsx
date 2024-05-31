@@ -1,4 +1,5 @@
 import React from "react";
+import { CloseModalButton } from "./CloseModalButton";
 
 export const CreatePost = () => {
   return (
@@ -8,9 +9,7 @@ export const CreatePost = () => {
           <h1>
             <b>Yeni gönderi</b>
           </h1>
-          <h1 className="text-white">
-            <i class="fa-solid fa-xmark bg-blue-100 p-2 rounded text-blue-400 cursor-pointer  hover:bg-blue-200 transition duration-200 ease-in-out"></i>
-          </h1>
+          <CloseModalButton />
         </div>
         <div className="flex flex-col p-2 gap-5">
           <textarea
